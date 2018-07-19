@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B" crossorigin="anonymous">
+    <title>Document</title>
+</head>
+<body>
+    <h2> Are you sure you want to delete the following course?</h2>
+    <div>
+    <p>Name: </p>
+    <p>{{ course.Name }} </p>
+    </div>
+    <div>
+    <p>Description: </p>
+    <p>{{ course.Description }} </p>
+    </div>
+    <form action = "/">
+        {% csrf_token%}
+    <input class= "btn btn-secondary" type= "submit" value= "No">
+    </form>
+    <form action="/delete/{{course.id}}" method= "POST">
+        {% csrf_token %}
+        <input class= "btn btn-danger" type= "submit" value= "Yes! I want to delete this">
+    </form>
+    
+    
+</body>
+</html>
